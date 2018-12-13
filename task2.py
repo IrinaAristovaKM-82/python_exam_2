@@ -1,36 +1,31 @@
 from data import dataset
 
+from validators.lib import getUserID
+from validators.lib import getBankName
+from validators.lib import getBankCredit
 
-#    Створити пакет validators та написати функції, що валідують усі дані. Імпорутвати дані функції.
+from task1 import addUserID
 
-from validators.lib import ?
-?
-?
+def addUserIDValidator():
+    user_id = getUserID()
+    while not user_id:
+        print("Error in id. Try again")
+        user_id = getUserID()
+    bank = getBankName()
+    while not bank:
+        print("Error in bank. Try again")
+        bank = getBankName()
+    credit = getBankCredit()
+    while not credit:
+        print("Error in credit. Try again")
+        credit = getBankCredit()
+    credit = float (credit)
+    addUserID(user_id, bank, credit)
 
+print("Task 2")
 
-from task1 import addUserProduct
+addUserIDValidator()
 
-
-#   Написати функцію, що зберігає інформацію про покупку користувачем товару у словник.
-#   Усі дані вводить користувач. Використати валідатори. Викликати функцію
-
-def addUserProductValidator():
-    #TODO
-    ? = getUserEmail()
-
-
-    ? = getProductName()
-
-    ? = getProductPrice()
-
-
-    addUserProduct(?, ?, ?)
-
-
-
-print("Task 1")
-addUserProductValidator()
 print(dataset)
-
 
 print("\n\n")

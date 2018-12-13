@@ -1,24 +1,18 @@
 from data import dataset
 
-#   Написати функцію, що зберігає інформацію про покупку користувачем товару у словник
-#   Викликати функцію
-
-
-def addUserProduct(user_name, product_name, product_price):
-    #TODO
-
-
+def addUserID(ID, bank, credit):
+    if ID in dataset:
+        if bank in dataset[ID]:
+            bank_list = dataset[ID][bank]
+            bank_list.append(credit)
+        else:
+            dataset[ID][bank] = [credit]
+    else:
+        dataset[ID] = {bank: [credit]}
 
 print("Task 1")
 
-#Додати нового користувача та нову покупку
-addUserProduct(?,?,?)
-
-#Додати існуючому користувачу нову покупку нового продукту
-addUserProduct(?,?,?)
-
-#Додати існуючому користувачу нову покупку існуючого продукту
-addUserProduct(?,?,?)
+addUserID("1234512345123456", "Privar24", "(1121.0грн)")
 
 print(dataset)
 

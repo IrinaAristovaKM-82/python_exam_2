@@ -1,23 +1,27 @@
-
 from data import dataset
 from task1 import *
 
-#   Написати рекурсивну функцію, що повертає інформацію: хто і скільки грошей витратив на свої покупки.
-#   Рекурсивно необхідно пройтись по користувачам та спискам їх товарів.
+
+def recursionByBank(id, bank, credit = 0):
+    if bank==[]:
+        return credit
+    bank = dataset[id][bank[0]]
+    credit = sum(bank)
+    return recursionByBank(id, bank[1:], credit)
 
 
-#product_list - словник з dataset, що зберігає товар та список його покупок (цін)
-def recursionByProducts(user_email, product_list, amount_of_money = 0):
-    #TODO
-
-
-def recursionByUsers(user_emails = list(dataset.keys()), result_dict = dict()):
-    #TODO
-
+def recursionByID(id=list(dataset.keys()), result_dict=dict()):
+    if id == []:
+        return result_dict
+    id = id[0]
+    bank_list = list(dataset[id].keys())
+    credit = recursionByBank(id, bank_list)
+    result_dict[id] = credit
+    return recursionByID(id[1:], result_dict)
 
 print("Task 3")
 
-result = recursionByUsers()
+result = recursionByID()
 print(result)
 
 print("\n\n")

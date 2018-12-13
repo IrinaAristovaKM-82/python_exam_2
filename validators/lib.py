@@ -6,11 +6,11 @@
 
 import re
 
-def getUserEmail():
+def getUserID():
 
-    user_input = input(?)
+    user_input = input("Enter ID:\n")
 
-    if (re.match(r"?", user_input) ):
+    if (re.match(r"^\d{16}", user_input) ):
         return user_input
     else:
         return False
@@ -21,8 +21,12 @@ def getUserEmail():
     Правило валідації
 """
 
-def getProductName():
-    #TODO
+def getBankName():
+    user_input = input("Enter your bank name:\n")
+    if (re.match(r"[A-Z]\w+\d*", user_input)):
+        return user_input
+    else:
+        return
 
 
 
@@ -32,5 +36,9 @@ def getProductName():
 """
 
 
-def getProductPrice():
-    #TODO
+def getBankCredit():
+    user_input = input("Enter credit:\n")
+    if (re.match(r"^\d{4}\.\d", user_input)):
+       return user_input
+    else:
+        return False
